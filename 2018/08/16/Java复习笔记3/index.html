@@ -11,7 +11,7 @@
 
     <title>
         
-        java复习笔记1 - chanlyang&#39;s Blog
+        Java复习笔记3 - chanlyang&#39;s Blog
         
     </title>
 
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        java复习笔记1
+        Java复习笔记3
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-08-16 11:01:07</span></span>
+        <span class="attr">发布于：<span>2018-08-16 14:22:27</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,10 +131,9 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a href="http://www.apache.org" target="_blank" rel="noopener">www.apache.org</a>       //超级项目<br><a href="http://www.oracle.com" target="_blank" rel="noopener">www.oracle.com</a>      //java规范<br>mvnrepository.com  //下载资源<br>一条主线：<br> 本地事务（编程式事务）——&gt;XA事务——&gt;声明性事务——&gt;分布式事务（MQ消息队列——KafKa）<br>两个架构：<br>分布式：RPC   非RPC<br>         公网  局域网<br>         同构  异构             //服务器和客服端是否为同一平台<br>     微软：com——&gt;dcom——&gt;com+——&gt;activeX(java中叫applet)<br>     Corba<br>     RMI——&gt;EJB<br>     Web Service<br>     Dubbo<br>     Spring Cloud<br>NoSql:<br>    SQL:mysql,oracle,sqlserver<br>    NoSql:redis,Mongodb,Hbase<br>Java开发XA事务的重要性？</p>
-<p>Spring Framework:<br>  《Enterprise developse whitout EJB》<br>   Ioc:控制反转 （DI依赖注入）<br>   AOP:切面编程<br>开发模式：<br>   EJB模式（重量级模式，必须依赖于EJB容器）<br>   JSP + JavaBean<br>      JavaBeans<br>        JavaBean是一种java类<br>        JavaBean必须是具体的和公共的，并且具备无参构造器<br>        JavaBean通过提供符合一致性设计模式的公共方法将内部域暴露称为属性<br>        JavaBean提供两种方法来访问Bean的内部状态：<br>         1.访问器(getters)用来读JavaBean状态– 以小写get前缀开始,后跟属性名，属性名的第一个字母必须大写，返回值必须匹配相应修改器的方法的参数；如果访问器返回boolean值，则使用is前缀开始，后跟属性名，属性名第一个字母必须大写。<br>         2.修改器(setters)用来改变JavaBean状态 – 以小写set前缀开始，后跟属性名，属性名的第一个字母必须大写，修改器的返回值通常为void</p>
-<p>   Spring声明性事务的模式（轻量级模式，无需EJB的容器）<br>JavaEE开发模型：组件+容器（管理组件生命期）</p>
-<p>JSR<br>甲骨文（兼并SUN公司）<br>    sun做的时提供JavaEE的全套规范和部分实现。<br>    Spring是基于JSR规范下的一套解决方案。<br>    Spring的核心两大功能：<br>        1.Enterprise developse whitout EJB。<br>        2.不要使用发明轮子——不做任何具体问题的解决方案，只做方案整合。</p>
+        <p>public class Dog{<br>    public final int aa;<br>    public static final int bb;<br>}<br>成员变量是final。则必须要在构造函数中初始化。<br>增加了static修饰符后，static与对象无关，则aa调用模式为Dog.bb。<br>这样就绕过了构造函数，则必须要初始化，不能在构造函数中初始化。</p>
+<p>final修饰了一个引用类型，他锁定的是引用地址，不是应用对象中的内容<br>        final Dog d2 = new Dog();<br>        d2.name(“啊”);<br>        d2 = d1; //报错。<br>public static final double PI = “3.14”;<br>    编译器常量<br>总结：<br>    final的特点：允许赋值一次，然后就不能修改<br>    static的特点:和对象无关，允许通过类命直接调用<br>变量：生命期与作用域<br>    局部变量：定义在函数体内的变量（基本类型、引用类型）<br>             作用域：定义局部变量的{}范围内<br>             生命期：<br>                 基本类型，当超过}。会被GC回收<br>                 引用类型，查看引用计数<br>        局部变量是线程独享的模式，每个线程都有自己的内存空间<br>    成员变量：<br>            作用域：类内所有方法<br>            生命期：<br>                基本类型：属性和所在对象的生命期一致<br>                引用类型：组合对象的生命期，可能是在对象外面创建的，和当前对象无关<br>            很对对象的生命期，是由容器管理的<br>                @Bean,Spring容器，javaEE容器(tomcat,weblogic)<br>    static变量：<br>            不能定义在方法内，只能作为成员变量存在<br>            作用域：Dog.dd,相当于全局变量，可以在类的外部被大量调用<br>            生命期：<br>                    static变量，可以被修改，从第一次调用才分配内存，直到程序结束，这块内存才被释放。<br>            static变量存在JVM的方法区中<br>静态方法不能调用所在class的属性，属性是属于对象的，静态的是属于类的。<br>Dog d2;  //stack中分配了一个4字节的空间，用于存放地址<br>d2 = new Dog();//在heap中分配内存，并返回这块内存的首地址</p>
+<p>继承关系(is-a)、组合关系(has-a)<br>    举例：班级Class{<br>        List<student> list;<br>    }<br>    学生Student{<br>        TClass tclass;<br>     }<br>设计模式：优先使用组合然后才是继承（上例）<br>工厂模式：<br>    抽象工厂<br>    工厂方法<br>    简单工厂(不在23中设计模式中)<br>单例模式：</student></p>
 
         
             <div class="donate-container">
@@ -244,7 +243,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'java复习笔记1',
+        id: 'Java复习笔记3',
         owner: 'chanlyang',
         repo: 'chanlyang.github.io',
         oauth: {

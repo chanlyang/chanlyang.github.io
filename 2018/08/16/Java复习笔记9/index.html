@@ -11,7 +11,7 @@
 
     <title>
         
-        java复习笔记1 - chanlyang&#39;s Blog
+        Java复习笔记9 - chanlyang&#39;s Blog
         
     </title>
 
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        java复习笔记1
+        Java复习笔记9
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-08-16 11:01:07</span></span>
+        <span class="attr">发布于：<span>2018-08-16 14:23:55</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,10 +131,44 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a href="http://www.apache.org" target="_blank" rel="noopener">www.apache.org</a>       //超级项目<br><a href="http://www.oracle.com" target="_blank" rel="noopener">www.oracle.com</a>      //java规范<br>mvnrepository.com  //下载资源<br>一条主线：<br> 本地事务（编程式事务）——&gt;XA事务——&gt;声明性事务——&gt;分布式事务（MQ消息队列——KafKa）<br>两个架构：<br>分布式：RPC   非RPC<br>         公网  局域网<br>         同构  异构             //服务器和客服端是否为同一平台<br>     微软：com——&gt;dcom——&gt;com+——&gt;activeX(java中叫applet)<br>     Corba<br>     RMI——&gt;EJB<br>     Web Service<br>     Dubbo<br>     Spring Cloud<br>NoSql:<br>    SQL:mysql,oracle,sqlserver<br>    NoSql:redis,Mongodb,Hbase<br>Java开发XA事务的重要性？</p>
-<p>Spring Framework:<br>  《Enterprise developse whitout EJB》<br>   Ioc:控制反转 （DI依赖注入）<br>   AOP:切面编程<br>开发模式：<br>   EJB模式（重量级模式，必须依赖于EJB容器）<br>   JSP + JavaBean<br>      JavaBeans<br>        JavaBean是一种java类<br>        JavaBean必须是具体的和公共的，并且具备无参构造器<br>        JavaBean通过提供符合一致性设计模式的公共方法将内部域暴露称为属性<br>        JavaBean提供两种方法来访问Bean的内部状态：<br>         1.访问器(getters)用来读JavaBean状态– 以小写get前缀开始,后跟属性名，属性名的第一个字母必须大写，返回值必须匹配相应修改器的方法的参数；如果访问器返回boolean值，则使用is前缀开始，后跟属性名，属性名第一个字母必须大写。<br>         2.修改器(setters)用来改变JavaBean状态 – 以小写set前缀开始，后跟属性名，属性名的第一个字母必须大写，修改器的返回值通常为void</p>
-<p>   Spring声明性事务的模式（轻量级模式，无需EJB的容器）<br>JavaEE开发模型：组件+容器（管理组件生命期）</p>
-<p>JSR<br>甲骨文（兼并SUN公司）<br>    sun做的时提供JavaEE的全套规范和部分实现。<br>    Spring是基于JSR规范下的一套解决方案。<br>    Spring的核心两大功能：<br>        1.Enterprise developse whitout EJB。<br>        2.不要使用发明轮子——不做任何具体问题的解决方案，只做方案整合。</p>
+        <p>Dog dog = new Dog();<br>dog.swim();<br>上面的代码，对象的创建、属性的赋值和对象方法的调用，都是在编译期决定的<br>反射:reflection<br>    程序的一种内省机制<br>    程序可以在运行期动态的创建对象、获取对象类型、调用对象行为<br>内省机制在Java和.net语言中有，在早期的c,c++,delphi,vb这些语言都没有内省机制。</p>
+<p>//可变参数<br>public void main(String… args){}<br>//反编译后是一个参数数组<br>public transient void main(String[] args){}</p>
+<p>Class:<br>    类的实例代表一个运行 类 java应用程序的类和接口。<br>    Class<dog> aa = Dog.class;  //获取数据类型</dog></p>
+<pre><code>Dog dog = new Dog();
+Class&lt;Dog&gt; bb = dog.getClass();//在运行期，动态获取对象的数据类型
+
+Class.forName(&quot;com.nepu.Dog&quot;); //返回与给定的字符串名称的类或接口相关的 类对象。 
+    1.检查数据类型是否存在
+    2.通过静态代码块给静态变量初始化 -----静态变量存储与JVM的方法区
+    3.ClassLoader，把数据类型加载到JVM的方法区
+    4.返回Class对象
+
+Class.forName(&quot;oracle.jdbc.driver.OracleDriver&quot;);
+Connection conn = DriverManager.getConnection(&quot;xxx&quot;,&quot;ccc&quot;,&quot;sss&quot;);
+    作用：检查驱动是否存在
+          通过静态代码块，给静态变量初始化
+
+String path = Dog.class.getResourse(&quot;\&quot;).toURI().getPath();
+    动态获取程序允许路径
+
+Field[] getDeclaredFields() ；返回 Field物体反射所有字段的类或接口的 类对象表示声明数组。 
+    一个Field提供有关信息和动态访问，一个类或接口的一个单一的领域。反射场可以是一个类（静态）字段或一个实例字段。
+方法[] getDeclaredMethods() ;
+    返回一个数组包含 方法物体反射所有声明的方法的类或接口的类对象，代表包括公众、保护，默认（包）的访问，和私有方法，但不包括继承的方法。   
+
+方法 getMethod(String name, 类&lt;?&gt;... parameterTypes) ;
+    返回一个 方法对象反映的类或接口的 类对象表示的指定公共成员方法。  
+T newInstance() ;创建这个 类对象表示的类的一个新实例。  
+Constructor&lt;T&gt; getDeclaredConstructor(类&lt;?&gt;... parameterTypes) ；返回一个        
+                Constructor对象反映指定的构造函数的类或接口的 类对象表示。 
+动态创建对象：
+    Class aa = Dog.class;
+    Object dog = aa.newInstance();  //无参
+    Object dog = aa.getDeclaredConstructor(String.class).newInstance(&quot;旺财&quot;); //有参
+    Method mm = aa.getDeclaredMethod(&quot;playDisc&quot;,String.class);
+    mm.invoke(dog,&quot;椭圆&quot;);    //动态调用对象的行为
+</code></pre><p>Method:<br>    方法：<br>        Object invoke(Object obj, Object… args) ;调用底层的方法，这 方法对象表示，对指定对象的指定参数。  </p>
+<p>设计模式：<br>    单例：数据库链接信息读取（在程序运行期间动态判断对象的hashcode()值是否一样）<br>    工厂模式：<br>        抽线工厂：<br>        工厂方法：<br>        简单工厂：<br>    组合模式(component)：Swing控件库设计结构<br>    观察者模式(Observer,subscibe/publish)（发布订阅模式）：Swing的事件机制<br>    代理模式（proxy）：<br>        静态代理：<br>        动态代理:<br>        hibernate懒加载</p>
 
         
             <div class="donate-container">
@@ -244,7 +278,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'java复习笔记1',
+        id: 'Java复习笔记9',
         owner: 'chanlyang',
         repo: 'chanlyang.github.io',
         oauth: {

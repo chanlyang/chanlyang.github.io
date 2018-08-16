@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="chanlyang&#39;blogs">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Java复习笔记6 - chanlyang&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> sometimes code， sometimes design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>chanlyang</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> sometimes code， sometimes design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Java复习笔记6
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-08-16 14:23:28</span></span>
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>2018.8.1<br>java.util<br>Interface Collection<e><br>    一组Object的集合<br>    这个接口和子接口、子类都是集合<br>    Collection集合可能是有序的，也可能是无序的。所以不能使用索引下标进行遍历。</e></p>
+<pre><code>boolean add(E e)添加
+boolean remove(Objece o)移除
+int size() 大小
+</code></pre><p>java.lang<br>Interface Iterable<t> 使用迭代器，对集合进行统一遍历</t></p>
+<p>静态数组空间大小是一定的，最大的缺陷是数据是动态的，很难提前预估数组的大小。<br>静态数组的遍历方式是按照索引下标进行循环。</p>
+<p>Collection 接口<br>    List接口: 有序集合,列表可以添加重复元素。<br>        void add(int index,E element)添加<br>        E get(int index)按下标找值<br>        E remove(int index)按索引移除<br>        E set(int index)替换<br>            实现类：ArrayList:数据结构是静态数组(非线程安全的)<br>                        构造具有指定初始容量的空列表<br>                        初始化大小为10<br>                        //初始化大小非常重要，最好只产生一次重新分配内存的机会<br>                        //增加到原来的1.5倍<br>                        //内存重新分配后，需要把原来的内存拷贝到新的静态数组中，非常消耗性能<br>                        //使用场景：读取数据库中的数据，进行列表显示<br>                   LinkedList：链表<br>                           //采用静态内部类来定义一个节点<br>                           //优势，插入和删除的速度块<br>                           //使用链表Node来实现了一个先进先出的队列，又是一个有序集合<br>                           重要方法：<br>                               addFirst(E e);<br>                               addLast(E e);<br>                               E element(); 检索但不删除表头<br>                               E peek(); 检索但不删除表头<br>                   Stack:栈LIFO<br>                           /**</p>
+<pre><code>                     * Stack继承Vector,栈是后进先出的。
+                     * 方法：
+                     * 1.empty();测试堆栈是否为空
+                     * 2.peek();查看栈顶部的对象，但不从堆栈中移除它
+                     *          与LinkedList的peek()方法不同，他是从栈顶即数组尾部查看数据。
+                     * 3.pop();移除堆栈顶部的对象，并作为此函数的返回值返回
+                     * 4.push(E item);把项压入堆栈顶部
+                     * 5.search(Object o);返回对象在堆栈中的位置，以1为基数
+                    */
+               Vector:线程安全
+                       //增加到原来的两倍。
+                       synchronized关键字修饰方法
+                           多个线程对一个对象的一个方法进行操作，则只能有一个线程执行这个方法，其他线程等待（线程独享）
+Set接口:不包含重复元素。
+    实现类：
+        HashSet:
+            底层数据结构是HashMap，
+            HashMap&lt;k,v&gt;,实际是把算有value置为空，而HashSet&lt;E&gt;存储的就是
+                常用方法：
+                    1.HashSet() 构建了一个新的，空的设置；支持HashMap实例具有默认初始容量（16）和负载因子（0.75）。
+                    2.boolean add(E e) 如果没有已存在，则将指定的元素添加到该集合中。 
+                    3.boolean contains(Object o)  如果这套 true返回包含指定的元素。 
+                    4.boolean isEmpty()  返回 true如果这个集合不包含元素。 
+                    5.Iterator&lt;E&gt; iterator()  返回此集合中元素的迭代器。 
+                    6.boolean remove(Object o)  如果当前存在，则从该集合中移除指定的元素。 
+                    7.int size()  返回该集合中元素个数（其基数）。 
+        TreeSet:
+            基于 TreeMap NavigableSet实施。用他们的 natural ordering元素是有序的，或由  Comparator在设定的创作时间，这取决于使用哪个构造函数。
+                常用方法：
+                    1.boolean add(E e)  如果没有已存在，则将指定的元素添加到该集合中。 
+                    2.E ceiling(E e)  返回最小的元素在这组大于或等于给定的元素，或  null如果没有这样的元素。 
+                    3.Comparator&lt;? super E&gt; comparator()  返回用于命令set中元素的比较，或 null如果使用此设置元素的 natural ordering。 
+                    4.boolean contains(Object o)  如果这套 true返回包含指定的元素。 
+                    5.Iterator&lt;E&gt; descendingIterator()  在这个集合中的元素上返回一个迭代器。 
+                    6.NavigableSet&lt;E&gt; descendingSet()  返回此集合中包含的元素的反向顺序视图。 
+                    7.E first()  返回当前在该集合中的第一个（最低的）元素。 
+                    8.E floor(E e)  返回最大的元素在这组小于或等于给定的元素，或 null如果没有这样的元素。 
+                    9.SortedSet&lt;E&gt; headSet(E toElement)  返回从这个集合的元素是严格小于 toElement部分。
+                    10.NavigableSet&lt;E&gt; headSet(E toElement, boolean inclusive)  返回从这个集合的元素都小于（或等于部分，如果 inclusive是真的） toElement。
+                    11.E higher(E e)  返回最小的元素在这套严格大于给定的元素，或 null如果没有这样的元素。 
+                    12.Iterator&lt;E&gt; iterator()  在这个集合中的元素上返回一个迭代器。 
+</code></pre><p>如果没有已存在，则将指定的元素添加到该集合中。<br>    Queue接口：具有先进先出的特点，不是有序集合<br>        实现类：LinkedList，既是有序集合又是队列<br>                LinkedBlockingQueue<e><br>        重要方法：<br>            boolean    offer(); 插入<br>            E poll();  移除并返回<br>        注意：Queue的父接口是Colloction，使用Queue的时候，最好使用offer()和poll()方法,不要使用Collection 的add()和remove()方法。<br>Map接口：<br>    映射键到值的对象。一张Map不能包含重复的键，每个键可以映射到至多一个值。<br>    常用方法：<br>        Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet()  返回一个 Set视图的映射包含在这个Map。<br>        V get(Object key) 返回指定的键映射的值，或 null如果这个Map不包含的键映射。<br>        Set<k> keySet()  返回一个 Set的关键视图包含在这个Map。<br>        V put(K key, V value) 将指定的值与此映射中的指定键关联（可选操作）。<br>        V remove(Object key)  如果存在（可选操作），则从该Map中移除一个键的映射。<br>        default V replace(K key, V value)  仅当它当前映射到某一值时，替换指定的键的条目。<br>    实现类：</k></e></p>
+<p>一切皆对象<br>    java.lang<br>        Class Object<br>            Object clone()  深拷贝，浅拷贝<br>            boolean equals(Object obj) 比较对象的值，而不是地址<br>            void finalize() 垃圾回收，无需调用，应该由GC调用<br>                try{<br>                }finally{<br>                   //在此处回收try中的非托管资源<br>                }<br>                托管资源：由GC处理<br>                非托管资源：由开发人员处理<br>            类&lt;?&gt; getClass 返回对象运行时类，  反射操作<br>            int hashCode() 返回对象的哈希值。<br>                只要在执行java应用程序的多次在同一个对象上，则返回同一个整数哈希值<br>                不同对象可能有相同的hashcode<br>            void notify()唤醒正在等待对象监视器的单个线程<br>            void notifyAll()唤醒正在等待对象监视器的所有线程<br>            void wait() 当前线程等待</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/c_henLyang">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/elianguu">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/13836739082">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/chanlyang">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://www.10000h.top">10000H</a></span>
+        <span>/</span>
+        
+        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Java复习笔记6',
+        owner: 'chanlyang',
+        repo: 'chanlyang.github.io',
+        oauth: {
+            client_id: 'your-id-created-by-https://github.com/settings/applications/new',
+            client_secret: 'your-secret-created-by-https://github.com/settings/applications/new',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

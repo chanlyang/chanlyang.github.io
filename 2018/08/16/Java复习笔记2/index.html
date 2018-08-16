@@ -11,7 +11,7 @@
 
     <title>
         
-        java复习笔记1 - chanlyang&#39;s Blog
+        Java复习笔记2 - chanlyang&#39;s Blog
         
     </title>
 
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        java复习笔记1
+        Java复习笔记2
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-08-16 11:01:07</span></span>
+        <span class="attr">发布于：<span>2018-08-16 14:21:53</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,10 +131,26 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a href="http://www.apache.org" target="_blank" rel="noopener">www.apache.org</a>       //超级项目<br><a href="http://www.oracle.com" target="_blank" rel="noopener">www.oracle.com</a>      //java规范<br>mvnrepository.com  //下载资源<br>一条主线：<br> 本地事务（编程式事务）——&gt;XA事务——&gt;声明性事务——&gt;分布式事务（MQ消息队列——KafKa）<br>两个架构：<br>分布式：RPC   非RPC<br>         公网  局域网<br>         同构  异构             //服务器和客服端是否为同一平台<br>     微软：com——&gt;dcom——&gt;com+——&gt;activeX(java中叫applet)<br>     Corba<br>     RMI——&gt;EJB<br>     Web Service<br>     Dubbo<br>     Spring Cloud<br>NoSql:<br>    SQL:mysql,oracle,sqlserver<br>    NoSql:redis,Mongodb,Hbase<br>Java开发XA事务的重要性？</p>
-<p>Spring Framework:<br>  《Enterprise developse whitout EJB》<br>   Ioc:控制反转 （DI依赖注入）<br>   AOP:切面编程<br>开发模式：<br>   EJB模式（重量级模式，必须依赖于EJB容器）<br>   JSP + JavaBean<br>      JavaBeans<br>        JavaBean是一种java类<br>        JavaBean必须是具体的和公共的，并且具备无参构造器<br>        JavaBean通过提供符合一致性设计模式的公共方法将内部域暴露称为属性<br>        JavaBean提供两种方法来访问Bean的内部状态：<br>         1.访问器(getters)用来读JavaBean状态– 以小写get前缀开始,后跟属性名，属性名的第一个字母必须大写，返回值必须匹配相应修改器的方法的参数；如果访问器返回boolean值，则使用is前缀开始，后跟属性名，属性名第一个字母必须大写。<br>         2.修改器(setters)用来改变JavaBean状态 – 以小写set前缀开始，后跟属性名，属性名的第一个字母必须大写，修改器的返回值通常为void</p>
-<p>   Spring声明性事务的模式（轻量级模式，无需EJB的容器）<br>JavaEE开发模型：组件+容器（管理组件生命期）</p>
-<p>JSR<br>甲骨文（兼并SUN公司）<br>    sun做的时提供JavaEE的全套规范和部分实现。<br>    Spring是基于JSR规范下的一套解决方案。<br>    Spring的核心两大功能：<br>        1.Enterprise developse whitout EJB。<br>        2.不要使用发明轮子——不做任何具体问题的解决方案，只做方案整合。</p>
+        <p>C++与Java平台对比：<br>    2000年左右，java逐渐把c++替掉了</p>
+<pre><code>C++有指针   好处： 速度快
+            缺陷： 内存溢出、内存泄漏
+            new    分配内存
+            delete 释放内存
+变量：全局变量（C语言）  定义C语言函数外面的变量
+      成员变量（C++）  定义在类的内部，方法的外部
+              在构造函数分配内存，在析构函数释放内存
+      局部变量 ： 定义在函数或方法内
+              在函数内分配内存，在函数内释放内存
+
+Java没有内存泄漏：GC 垃圾回收机制
+JVM中有堆，虚拟机栈，本地方法栈，程序计数器等，方法区（运行期常量池）--static变量，字符型常量String，Class类型加载。
+</code></pre><p>java7,将static移入heap中<br>java8，将字符床常量移入heap中<br>    C/C++是编译程序<br>    Java是半编译程序——&gt;最终解释执行的<br>        <em>.java编译成</em>.class，字节码（与CPU无关）<br>    javascript是纯解释性语言（newscape网景公司）<br>JDK是什么语言开发的？<br>    Java和C语言<br>JDK  JRE  JVM 之间的关系？<br>-<br>-<br>-<br>package就是namespace，解决变量的命名冲突<br>命名规范：<br>    包名全部小写<br>    类命：首字母大写，一定是名词<br>    方法：首字母小写，一定是动词，例getUserName（驼峰命名法）</p>
+<p>Eclipse快捷键<br>    Alt+?<br>    CTRL+SHIFT+O  自动导包<br>值类型（基本类性） ：内存空间确定，会放在 stack 中<br>引用类性： 会放在heap中</p>
+<p>编程思想：<br>    面向过程编程—-ooa<br>    面向对象编程—-oop(object orient program)<br>        继承、封装、多态<br>    面向服务编程—-sop(service orient program)<br>    面向切面编程—-aop(aspest orient program)</p>
+<p>entity  实体  从业务需求中的名词去抽取<br>        名词都是概念，不是实体就是属性</p>
+<p>类 Class ： 类就是类型信息，从特殊到一般的抽取过程，抽象 Dog<br>具象：由一般到特殊,Dog d1 = new Dog();<br>实体类：只有属性，没有行为<br>业务类：业务逻辑，一般只有行为，没有属性<br>class Dog{}<br>    类前面没有修饰符，叫做默认关键字<br>    默认关键字在包内有效<br>Debug调试模式：<br>    F6单步调试<br>    F8由当前位置，调到下一个断点，就运行到结束位置<br>构造函数的特点：<br>    没有返回值<br>    名字与类命完全相同<br>方法名，同名不同参，被称作overload</p>
+<p>变量的作用域<br>    成员变量：类内部的所有方法都可以调用<br>    局部变量：定义在函数体内，作用域在定义的{}内</p>
+<p>static关键字：<br>    static变量的特点：<br>        生命期：<br>        作用域<br>    常量的定义:public static final double PI = 3.14;<br>    static方法的特点<br>    static变量的序列化<br>    静态内部类的特点<br>    static变量在集群中的特点<br>    static变量与C的全局变量对比<br>    static变量与ServletContext变量、application对象对比<br>常量：<br>    编译器常量：public static final double PI = 3.14;<br>    运行期常量：例如String,<br>final的特点:<br>    可以有一次赋值机会，赋值之后就不允许改变了，<br>    final可以修饰常量，也可以修饰变量<br>    场景举例:数据库链接的信息放在配置文件中，在构造函数中读取，然后在存储在final变量中。<br>    程序运行期间，数据库链接信息不允许变动。</p>
 
         
             <div class="donate-container">
@@ -244,7 +260,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'java复习笔记1',
+        id: 'Java复习笔记2',
         owner: 'chanlyang',
         repo: 'chanlyang.github.io',
         oauth: {

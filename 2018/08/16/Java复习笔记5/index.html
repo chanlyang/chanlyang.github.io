@@ -11,7 +11,7 @@
 
     <title>
         
-        java复习笔记1 - chanlyang&#39;s Blog
+        Java复习笔记5 - chanlyang&#39;s Blog
         
     </title>
 
@@ -119,11 +119,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        java复习笔记1
+        Java复习笔记5
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2018-08-16 11:01:07</span></span>
+        <span class="attr">发布于：<span>2018-08-16 14:23:20</span></span>
         
         </span>
         <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
@@ -131,10 +131,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a href="http://www.apache.org" target="_blank" rel="noopener">www.apache.org</a>       //超级项目<br><a href="http://www.oracle.com" target="_blank" rel="noopener">www.oracle.com</a>      //java规范<br>mvnrepository.com  //下载资源<br>一条主线：<br> 本地事务（编程式事务）——&gt;XA事务——&gt;声明性事务——&gt;分布式事务（MQ消息队列——KafKa）<br>两个架构：<br>分布式：RPC   非RPC<br>         公网  局域网<br>         同构  异构             //服务器和客服端是否为同一平台<br>     微软：com——&gt;dcom——&gt;com+——&gt;activeX(java中叫applet)<br>     Corba<br>     RMI——&gt;EJB<br>     Web Service<br>     Dubbo<br>     Spring Cloud<br>NoSql:<br>    SQL:mysql,oracle,sqlserver<br>    NoSql:redis,Mongodb,Hbase<br>Java开发XA事务的重要性？</p>
-<p>Spring Framework:<br>  《Enterprise developse whitout EJB》<br>   Ioc:控制反转 （DI依赖注入）<br>   AOP:切面编程<br>开发模式：<br>   EJB模式（重量级模式，必须依赖于EJB容器）<br>   JSP + JavaBean<br>      JavaBeans<br>        JavaBean是一种java类<br>        JavaBean必须是具体的和公共的，并且具备无参构造器<br>        JavaBean通过提供符合一致性设计模式的公共方法将内部域暴露称为属性<br>        JavaBean提供两种方法来访问Bean的内部状态：<br>         1.访问器(getters)用来读JavaBean状态– 以小写get前缀开始,后跟属性名，属性名的第一个字母必须大写，返回值必须匹配相应修改器的方法的参数；如果访问器返回boolean值，则使用is前缀开始，后跟属性名，属性名第一个字母必须大写。<br>         2.修改器(setters)用来改变JavaBean状态 – 以小写set前缀开始，后跟属性名，属性名的第一个字母必须大写，修改器的返回值通常为void</p>
-<p>   Spring声明性事务的模式（轻量级模式，无需EJB的容器）<br>JavaEE开发模型：组件+容器（管理组件生命期）</p>
-<p>JSR<br>甲骨文（兼并SUN公司）<br>    sun做的时提供JavaEE的全套规范和部分实现。<br>    Spring是基于JSR规范下的一套解决方案。<br>    Spring的核心两大功能：<br>        1.Enterprise developse whitout EJB。<br>        2.不要使用发明轮子——不做任何具体问题的解决方案，只做方案整合。</p>
+        <p>public interface ISwim{<br>    double PAI = 3.14;<br>    void swim();<br>}<br>//反编译结果如下<br>public interface ISwim{<br>    public static final double PAI = 3.14;<br>    public abstract swim();<br>}<br>编译器常量:上述常量。<br>运行期常量：String。<br>//接口中可以放变量<br>public interface ISwim{<br>    public static final double PAI = 3.14;<br>    public abstract swim();<br>    Dog d = new Dog(“wwa”);<br>}<br>三个第三方记录日志的框架：<br>    Log4j,sl4j,apache.commons.logging<br>接口是能力的体现，接口是一种约束</p>
 
         
             <div class="donate-container">
@@ -244,7 +241,7 @@
 <script src="/js/gitment.js"></script>
 <script>
     var gitment = new Gitment({
-        id: 'java复习笔记1',
+        id: 'Java复习笔记5',
         owner: 'chanlyang',
         repo: 'chanlyang.github.io',
         oauth: {
