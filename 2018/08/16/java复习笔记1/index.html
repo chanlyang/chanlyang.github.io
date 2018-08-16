@@ -137,6 +137,16 @@
 <p>JSR<br>甲骨文（兼并SUN公司）<br>    sun做的时提供JavaEE的全套规范和部分实现。<br>    Spring是基于JSR规范下的一套解决方案。<br>    Spring的核心两大功能：<br>        1.Enterprise developse whitout EJB。<br>        2.不要使用发明轮子——不做任何具体问题的解决方案，只做方案整合。</p>
 
         
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
         <div id="comment-container">
         </div>
     </div>
@@ -193,6 +203,20 @@
     </ul>
     
     <p>
+        <span>/</span>
+        
+        <span><a href="https://www.10000h.top">10000H</a></span>
+        <span>/</span>
+        
+        <span><a href="https://niexiaotao.com">Xiaotao&#39;s Page</a></span>
+        <span>/</span>
+        
+        <span><a href="#">It helps SEO</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
         <span id="busuanzi_container_site_pv">
             <span id="busuanzi_value_site_pv"></span>PV
         </span>
@@ -216,5 +240,19 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'java复习笔记1',
+        owner: 'chanlyang',
+        repo: 'chanlyang.github.io',
+        oauth: {
+            client_id: 'your-id-created-by-https://github.com/settings/applications/new',
+            client_secret: 'your-secret-created-by-https://github.com/settings/applications/new',
+        },
+    })
+    gitment.render('comment-container')
+</script>
 
 </html>
